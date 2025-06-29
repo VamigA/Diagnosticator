@@ -1,0 +1,9 @@
+FROM ghcr.io/ggerganov/llama.cpp:server-cuda
+
+RUN apt-get update && \
+	apt-get install -y wget && \
+	mkdir -p /models && \
+	wget -O /models/medgemma-4b-it-UD-Q4_K_XL.gguf \
+	https://huggingface.co/unsloth/medgemma-4b-it-GGUF/resolve/main/medgemma-4b-it-UD-Q4_K_XL.gguf
+
+CMD ["-m", "/models/medgemma-4b-it-UD-Q4_K_XL.gguf", "--port", "8080"]

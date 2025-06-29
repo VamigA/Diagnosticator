@@ -1,0 +1,11 @@
+services:
+  medgemma-server:
+    image: medgemma-server
+    container_name: medgemma-server
+    ports:
+      - 8080:8080
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
