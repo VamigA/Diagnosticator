@@ -1,1 +1,4 @@
+aiofiles
 aiohttp
+fastapi
+uvicorn

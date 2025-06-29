@@ -2,6 +2,9 @@ services:
   medgemma-server:
     image: medgemma-server
     container_name: medgemma-server
+    build:
+      context: .
+      dockerfile: dockerfile.medgemma-server
     ports:
       - 8080:8080
     deploy:
@@ -9,3 +12,19 @@ services:
         reservations:
           devices:
             - capabilities: [gpu]
+  test-generator:
+    image: test-generator
+    container_name: test-generator
+    build:
+      context: .
+      dockerfile: dockerfile.test-generator
+    ports:
+      - 8000:8000
+  frontend:
+    image: quiz-frontend
+    container_name: quiz-frontend
+    build:
+      context: .
+      dockerfile: dockerfile.quiz-frontend
+    ports:
+      - 8081:80

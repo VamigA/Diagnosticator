@@ -1,2 +1,4 @@
 __pycache__
 .venv
+backend/logs/*
+!backend/logs/.gitkeep
